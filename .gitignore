@@ -1,0 +1,12 @@
+.cache/
+.pytest_cache/
+.ruff_cache/
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+artifacts/
+
+latest-smoke*.log
+latest-smoke*.pid

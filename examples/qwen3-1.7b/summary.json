@@ -1,0 +1,97 @@
+{
+  "run_id": "method-smoke-20260818T184507Z",
+  "status": "pass",
+  "scope": "DRAFT-RL Qwen3-1.7B method smoke; no performance claim",
+  "environment": {
+    "gpu": "NVIDIA A40",
+    "gpu_total_gib": 44.431640625,
+    "torch": "2.8.0+cu128",
+    "cuda": "12.8",
+    "model_id": "Qwen/Qwen3-1.7B"
+  },
+  "trainable_parameters_per_adapter": {
+    "agent_a": 8716288,
+    "agent_b": 8716288,
+    "agent_c": 8716288
+  },
+  "adapter_dtypes": {
+    "agent_a": [
+      "torch.float32"
+    ],
+    "agent_b": [
+      "torch.float32"
+    ],
+    "agent_c": [
+      "torch.float32"
+    ]
+  },
+  "train_candidates": 18,
+  "eval_candidates": 6,
+  "peer_reviews": 48,
+  "reward_model": {
+    "training_rows": 36,
+    "positive_rows": 18,
+    "negative_rows": 18,
+    "initial_loss": 0.693315327167511,
+    "final_loss": 0.0034379318822175264,
+    "positive_mean_score": 0.9965624213218689,
+    "negative_mean_score": 0.0034160783980041742,
+    "calibration_pair_pass": true,
+    "reload_max_abs_diff": 0.0
+  },
+  "ppo_updates": [
+    {
+      "agent_id": "agent_a",
+      "active_adapter_delta_norm": 0.4263921845460369,
+      "inactive_adapter_max_delta_norm": 0.0,
+      "base_trainable_params": 0
+    },
+    {
+      "agent_id": "agent_b",
+      "active_adapter_delta_norm": 0.37181599124860154,
+      "inactive_adapter_max_delta_norm": 0.0,
+      "base_trainable_params": 0
+    },
+    {
+      "agent_id": "agent_c",
+      "active_adapter_delta_norm": 0.4127994414076279,
+      "inactive_adapter_max_delta_norm": 0.0,
+      "base_trainable_params": 0
+    }
+  ],
+  "adapter_reload_max_abs_diff": {
+    "agent_a": 0.0,
+    "agent_b": 0.0,
+    "agent_c": 0.0
+  },
+  "adapter_reload_state_max_abs_diff": {
+    "agent_a": 0.0,
+    "agent_b": 0.0,
+    "agent_c": 0.0
+  },
+  "gates": {
+    "six_eval_drafts": true,
+    "twelve_cross_reviews": true,
+    "all_reviews_structured": true,
+    "all_reviews_parse_ok": true,
+    "global_selection_is_cod_valid": true,
+    "rm_loss_finite": true,
+    "rm_calibration_pair": true,
+    "rm_reload": true,
+    "ppo_gradients_nonzero": true,
+    "all_adapters_updated": true,
+    "inactive_adapters_unchanged": true,
+    "base_frozen": true,
+    "adapter_dtype_consistent": true,
+    "adapter_state_reload": true,
+    "adapter_logits_reload": true,
+    "metrics_finite": true
+  },
+  "limitations": [
+    "Claude-3.5-Sonnet is replaced by Qwen3-1.7B.",
+    "K is reduced from 5 to 2.",
+    "The transformer RM is replaced by a small learned hashed-text scorer.",
+    "Only a tiny frozen GSM8K split and one PPO iteration are used.",
+    "No accuracy or convergence improvement is claimed."
+  ]
+}
