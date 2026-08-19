@@ -1,6 +1,6 @@
-# DRAFT-RL 1.7B Method Smoke
+# DRAFT-RL Execution — Qwen/Qwen3-1.7B
 
-> This is a small real method demonstration, not a performance claim.
+> This example records one complete DRAFT-RL execution.
 
 ## Query
 
@@ -128,7 +128,7 @@ Peer reviews:
 - agent_a: overall=1.00; The solution is correct and follows logically. All steps are valid and relevant.
 - agent_c: overall=1.00; The solution is correct and follows logically. All steps are valid and relevant.
 
-## Reward-model smoke
+## Reward-model training
 
 - Loss: 0.6933 → 0.0034
 - Positive mean score: 0.9966

@@ -1,7 +1,7 @@
-# Method smoke results
+# Execution validation
 
-Two method-smoke profiles completed on one NVIDIA A40 GPU with PyTorch 2.8.0
-and CUDA 12.8.
+Two DRAFT-RL profiles completed on one NVIDIA A40 GPU with PyTorch 2.8.0 and
+CUDA 12.8.
 
 | Item | Qwen3-1.7B | Qwen3-8B |
 | --- | ---: | ---: |
@@ -35,7 +35,7 @@ These runs validate the mechanism, not accuracy improvement.
 - Qwen3-8B produced no correct candidate among six evaluation drafts in its
   single held-out query. The selected answer was incorrect.
 - One PPO update did not establish a capability improvement for either profile.
-- The low RM training loss reflects smoke calibration on a tiny set and must not
+- The low RM training loss reflects calibration on a tiny set and must not
   be interpreted as held-out generalization.
 
 Compact evidence for both runs is stored under `examples/`. Large checkpoints,

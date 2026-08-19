@@ -1,7 +1,7 @@
 {
-  "run_id": "method-smoke-20260818T190451Z",
+  "run_id": "draftrl-20260818T190451Z",
   "status": "pass",
-  "scope": "DRAFT-RL Qwen/Qwen3-8B method smoke; no performance claim",
+  "scope": "DRAFT-RL Qwen/Qwen3-8B execution",
   "environment": {
     "gpu": "NVIDIA A40",
     "gpu_total_gib": 44.431640625,

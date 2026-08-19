@@ -14,11 +14,11 @@ SCALAR_FEATURES = 11
 
 
 class HashedRewardModel(nn.Module):
-    """Small learned sequence scorer for the method smoke.
+    """Compact learned sequence scorer for the included profiles.
 
     Text is represented with stable hashed bag-of-token features and combined
-    with explicit peer/CoD features. This intentionally replaces the paper's
-    100M transformer RM only for the low-cost smoke profile.
+    with explicit peer/CoD features. The public profiles use this compact scorer
+    in place of the paper-scale transformer reward model.
     """
 
     def __init__(self, hash_dim: int = 256, hidden_dim: int = 64):

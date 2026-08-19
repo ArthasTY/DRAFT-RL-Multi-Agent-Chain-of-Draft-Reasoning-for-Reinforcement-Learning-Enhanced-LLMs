@@ -1,7 +1,7 @@
 # Method mapping
 
-The implementation follows the paper's executable method path while keeping the
-smoke profiles intentionally small.
+The implementation follows the paper's executable method path. The included
+profiles keep the data volume compact while retaining every learning stage.
 
 | Paper component | Implementation |
 | --- | --- |
@@ -27,14 +27,14 @@ Gold answers never enter generation prompts, peer-review prompts, or RM ranking
 features. They are consulted only by the verifier after the relevant candidates
 and rankings are frozen.
 
-## PPO smoke objective
+## PPO objective
 
 For response token $a_t$ generated from state $s_t$, the implementation stores
 the rollout-policy log probability and old value. Terminal reward is propagated
 with GAE. The actor uses the standard clipped ratio objective; the value head
 uses a clipped value loss. A fixed verified target supplies the imitation NLL.
 
-The smoke objective is:
+The optimization objective is:
 
 $$
 L = L_{PPO} + c_v L_V + \beta L_{KL} + \alpha L_{NLL}.

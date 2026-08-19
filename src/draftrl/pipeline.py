@@ -398,7 +398,7 @@ def build_teacher(
     return {
         "prompt_messages": selected["prompt_messages"],
         "response_token_ids": tokenizer(fallback, add_special_tokens=False)["input_ids"],
-        "teacher_source": "verifier_corrected_smoke_fallback",
+        "teacher_source": "verifier_corrected_fallback",
     }
 
 
@@ -516,7 +516,7 @@ def render_demo(
     query_rows = sorted(eval_rows, key=lambda row: row["global_rank"])
     selected = next(row for row in query_rows if row["selected_global"])
     lines = [
-        f"# DRAFT-RL Method Smoke — {model_id}",
+        f"# DRAFT-RL Execution — {model_id}",
         "",
         "> This is a small real method demonstration, not a performance claim.",
         "",
@@ -557,7 +557,7 @@ def render_demo(
         lines.append("")
     lines.extend(
         [
-            "## Reward-model smoke",
+            "## Reward-model training",
             "",
             f"- Loss: {rm_metrics['initial_loss']:.4f} → {rm_metrics['final_loss']:.4f}",
             f"- Positive mean score: {rm_metrics['positive_mean_score']:.4f}",
@@ -595,7 +595,7 @@ def render_demo(
 def run(config_path: Path) -> Path:
     config = json.loads(config_path.read_text(encoding="utf-8"))
     seed_everything(int(config["seed"]))
-    run_id = datetime.now(UTC).strftime("method-smoke-%Y%m%dT%H%M%SZ")
+    run_id = datetime.now(UTC).strftime("draftrl-%Y%m%dT%H%M%SZ")
     project_root = Path(__file__).resolve().parents[2]
     artifact_root = project_root / "artifacts" / run_id
     checkpoint_root = artifact_root / "checkpoints" / "adapters"
@@ -604,7 +604,7 @@ def run(config_path: Path) -> Path:
 
     device = torch.device("cuda:0")
     if not torch.cuda.is_available():
-        raise RuntimeError("CUDA is required for this smoke run")
+        raise RuntimeError("CUDA is required for this DRAFT-RL profile")
     environment = {
         "gpu": torch.cuda.get_device_name(0),
         "gpu_total_gib": torch.cuda.get_device_properties(0).total_memory / 1024**3,
@@ -859,7 +859,7 @@ def run(config_path: Path) -> Path:
     summary = {
         "run_id": run_id,
         "status": "pass" if all(gates.values()) else "fail",
-        "scope": f"DRAFT-RL {config['model_id']} method smoke; no performance claim",
+        "scope": f"DRAFT-RL {config['model_id']} execution",
         "environment": environment,
         "trainable_parameters_per_adapter": trainable_counts,
         "adapter_dtypes": dtype_map,
@@ -891,5 +891,5 @@ def run(config_path: Path) -> Path:
     )
     if summary["status"] != "pass":
         failed = [name for name, passed in gates.items() if not passed]
-        raise RuntimeError(f"Method smoke gates failed: {failed}; see {artifact_root}")
+        raise RuntimeError(f"DRAFT-RL validation gates failed: {failed}; see {artifact_root}")
     return artifact_root
