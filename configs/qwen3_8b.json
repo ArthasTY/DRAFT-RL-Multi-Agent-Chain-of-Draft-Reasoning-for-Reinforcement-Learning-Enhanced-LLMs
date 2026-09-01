@@ -1,0 +1,50 @@
+{
+  "schema_version": "draftrl-v1",
+  "model_id": "Qwen/Qwen3-8B",
+  "model_revision": "b968826d9c46dd6066d109eabc6255188de91218",
+  "dataset_revision": "740312add88f781978c0658806c59bc2815b9866",
+  "seed": 29,
+  "agents": ["agent_a", "agent_b", "agent_c"],
+  "agent_strategies": {
+    "agent_a": "Use a direct arithmetic decomposition.",
+    "agent_b": "Use an equation-first approach and check units.",
+    "agent_c": "Use an alternative route and verify the result."
+  },
+  "draft_temperatures": [0.2, 0.8],
+  "max_draft_tokens": 80,
+  "max_review_tokens": 160,
+  "train_examples": 1,
+  "eval_examples": 1,
+  "lora": {
+    "rank": 8,
+    "alpha": 16,
+    "dropout": 0.0,
+    "target_modules": [
+      "q_proj", "k_proj", "v_proj", "o_proj",
+      "gate_proj", "up_proj", "down_proj"
+    ]
+  },
+  "reward_model": {
+    "hash_dim": 256,
+    "hidden_dim": 64,
+    "epochs": 160,
+    "learning_rate": 0.003
+  },
+  "ppo": {
+    "clip_epsilon": 0.2,
+    "value_clip_epsilon": 0.2,
+    "gamma": 1.0,
+    "lambda": 1.0,
+    "value_coefficient": 0.1,
+    "kl_coefficient": 0.01,
+    "imitation_weight": 0.5,
+    "learning_rate": 0.00005,
+    "epochs": 2,
+    "max_grad_norm": 1.0
+  },
+  "reward_weights": {
+    "task": 1.0,
+    "peer": 0.2,
+    "cod": 0.1
+  }
+}

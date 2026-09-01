@@ -1,0 +1,43 @@
+cff-version: 1.2.0
+message: "If you use DRAFT-RL, please cite the AAAI-26 paper."
+title: "DRAFT-RL: Multi-Agent Chain-of-Draft Reasoning for Reinforcement Learning-Enhanced LLMs"
+type: software
+authors:
+  - family-names: Li
+    given-names: Yuanhao
+  - family-names: Liu
+    given-names: Mingshan
+  - family-names: Wang
+    given-names: Hongbo
+  - family-names: Zhang
+    given-names: Yiding
+  - family-names: Ma
+    given-names: Yifei
+  - family-names: Tan
+    given-names: Wei
+version: 0.1.0
+date-released: 2026-08-19
+repository-code: "https://github.com/ArthasTY/DRAFT-RL-Multi-Agent-Chain-of-Draft-Reasoning-for-Reinforcement-Learning-Enhanced-LLMs"
+preferred-citation:
+  type: article
+  title: "DRAFT-RL: Multi-Agent Chain-of-Draft Reasoning for Reinforcement Learning-Enhanced LLMs"
+  authors:
+    - family-names: Li
+      given-names: Yuanhao
+    - family-names: Liu
+      given-names: Mingshan
+    - family-names: Wang
+      given-names: Hongbo
+    - family-names: Zhang
+      given-names: Yiding
+    - family-names: Ma
+      given-names: Yifei
+    - family-names: Tan
+      given-names: Wei
+  journal: "Proceedings of the AAAI Conference on Artificial Intelligence"
+  volume: 40
+  issue: 35
+  start: 29530
+  end: 29537
+  year: 2026
+  doi: 10.1609/aaai.v40i35.40195
